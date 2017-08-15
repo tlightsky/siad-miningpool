@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  sia:
+    build: 
+      context: ./sia
+    volumes:
+      - ./sia-data/:/var/sia-data
+    restart:
+      always
+  ccminer:
+    build:
+      context: ./ccminer
+    volumes_from:
+      - sia
+    links:
+      - sia

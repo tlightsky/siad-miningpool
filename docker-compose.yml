@@ -8,6 +8,8 @@ services:
       - ./sia-data/:/var/sia-data
     restart:
       always
+    ports:
+      - "3333:3333"
   ccminer:
     build:
       context: ./ccminer
